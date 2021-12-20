@@ -1,0 +1,29 @@
+<launch>
+ <node
+ pkg="sensores_prueba"
+ type="pub_dht"
+ name="nodo_pub_dht"
+ />
+ <node pkg="dji_osdk_ros" type="dji_vehicle_node" name="vehicle_node" output="screen">
+    <!-- node parameters -->
+    <param name="acm_name" type="string" value="/dev/ttyACM0"/>
+    <param name="serial_name" type="string" value="/dev/ttyUSB0"/>
+    <param name="baud_rate" type="int" value="921600"/>
+    <param name="app_id" type="int" value=""/>
+    <param name="app_version" type="int" value="1"/>
+    <param name="align_time" type="bool" value="false"/>
+    <param name="enc_key" type="string" value=""/>
+    <param name="use_broadcast" type="bool" value="false"/>
+ </node>
+ <node
+ pkg="sensores_prueba"
+ type="sub_sensores.py"
+ name="nodo_sub_sensores"
+ output="screen"
+ />
+ <node
+ pkg="sensores_prueba"
+ type="pub_anemometro.py"
+ name="nodo_pub_anemometro"
+ />
+</launch>

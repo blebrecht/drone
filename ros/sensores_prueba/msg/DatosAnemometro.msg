@@ -1,0 +1,3 @@
+float32 velocidadViento
+float32 temperatura
+float32 humedad
